@@ -26,7 +26,7 @@ data "docker_image" "app_image" {
 # Instanz 1 der Web-Applikation
 resource "docker_container" "web_1" {
   name  = "hf-sys-web-1"
-  image = data.docker_image.app_image.image_id
+  image = data.docker_image.app_image.id
 
   env = [
     "APP_VERSION=${var.app_version}"
@@ -47,7 +47,7 @@ resource "docker_container" "web_1" {
 # Instanz 2 der Web-Applikation (Redundanz / Skalierung)
 resource "docker_container" "web_2" {
   name  = "hf-sys-web-2"
-  image = data.docker_image.app_image.image_id
+  image = data.docker_image.app_image.id
 
   env = [
     "APP_VERSION=${var.app_version}"
