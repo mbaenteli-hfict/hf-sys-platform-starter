@@ -1,0 +1,10 @@
+.git
+.gitignore
+.devcontainer
+__pycache__
+*.pyc
+.pytest_cache
+terraform-local
+terraform-azure
+audit-dossier
+README.md

@@ -1,0 +1,19 @@
+{
+  "_kommentar": "ACHTUNG: Diese Entra-ID-Konfiguration enth\u00e4lt 2 schwerwiegende Security-M\u00e4ngel!",
+  "appRegistration": {
+    "displayName": "sp-github-deploy-hfict",
+    "federatedIdentityCredential": {
+      "name": "github-actions-federation",
+      "issuer": "https://token.actions.githubusercontent.com",
+      "subject": "repo:hfict-klasse/cloud-starter:*",
+      "audiences": [
+        "api://AzureADTokenExchange"
+      ]
+    }
+  },
+  "roleAssignment": {
+    "principalName": "sp-github-deploy-hfict",
+    "roleDefinitionName": "Owner",
+    "scope": "/subscriptions/00000000-0000-0000-0000-000000000000"
+  }
+}
