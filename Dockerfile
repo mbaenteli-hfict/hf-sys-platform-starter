@@ -1,6 +1,15 @@
-# Basis-Image fuer den Codespace von Event 09
-FROM mcr.microsoft.com/devcontainers/python:1-3.12-bookworm
+FROM python:3.12-slim
 
-# Die im Image enthaltene Yarn-Paketquelle hat einen ungueltigen Signaturschluessel.
-# Sie wird entfernt, damit apt-get update (und damit die Docker- und Terraform-Installation) funktioniert.
-RUN rm -f /etc/apt/sources.list.d/yarn*.list
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY app/ app/
+
+RUN useradd -m appuser
+USER appuser
+
+EXPOSE 8080
+
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "app.main:app"]
