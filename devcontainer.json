@@ -1,0 +1,21 @@
+{
+  "name": "HF-ICT Event 09 - Platform Engineering & IaC",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/terraform:1": {}
+  },
+  "forwardPorts": [8080, 8081, 8082],
+  "postCreateCommand": "pip install -r requirements.txt",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
