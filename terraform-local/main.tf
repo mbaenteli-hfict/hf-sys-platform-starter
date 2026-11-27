@@ -9,13 +9,13 @@ terraform {
 }
 
 provider "docker" {}
-
+i
 # Isoliertes Bridge-Netzwerk für unsere Plattform-Services
 resource "docker_network" "platform_net" {
   name = "hf_sys_platform_net"
   ipam_config {
-    subnet = "172.28.0.0/16"
-  }
+  subnet  = "172.28.0.0/16"
+  gateway = "172.28.0.1"  }
 }
 
 # Referenz auf das in Sprint 1 lokal gebaute Image
